@@ -35,6 +35,10 @@ jobs:
 
       - name: Build static export
         run: npm run build
+        env:
+          # Custom domain (onair.com.pk) serves the site from / — assets must be /_next/...
+          # not /<repo>/_next/.... Set to false only if you rely on user.github.io/<repo>/ only.
+          GITHUB_PAGES_ROOT_SITE: 'true'
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
